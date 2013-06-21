@@ -4,10 +4,10 @@ Photogur::Application.routes.draw do
 
   post 'pictures' => 'pictures#create'
 
-  get 'pictures' => 'pictures#index'
+  root :to => "pictures#index"
 
   get 'pictures/new' => 'pictures#new'
-  
+
   get 'pictures/:id' => 'pictures#show'
 
   # You can have the root of your site routed with "root"
