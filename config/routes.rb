@@ -2,9 +2,13 @@ Photogur::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  post 'pictures' => 'pictures#create'
+
   get 'pictures' => 'pictures#index'
 
-  get 'pictures/:id' => 'pictures#show', as: "picture"
+  get 'pictures/new' => 'pictures#new'
+
+  get 'pictures/:id' => 'pictures#show', as: 'picture'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
