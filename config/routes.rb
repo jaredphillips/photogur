@@ -12,6 +12,8 @@ Photogur::Application.routes.draw do
 
   get 'pictures/:id' => 'pictures#show'
 
+  get 'pictures/:id/edit' => "pictures#edit", as: "edit_picture"
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
