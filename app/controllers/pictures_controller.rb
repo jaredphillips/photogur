@@ -14,7 +14,7 @@ class PicturesController < ApplicationController
 
 	def create
 	  # Make the variable @picture a new picture with the given params
-	  @picture = Picture.new(person_params)
+	  @picture = Picture.new(picture_params)
 	  if @picture.save
 	    # if the save for the picture was successful, go to index.html.erb
 	    redirect_to pictures_url
@@ -31,16 +31,22 @@ class PicturesController < ApplicationController
 	def update
 	  @picture = Picture.find(params[:id])
 
-	  if @picture.update_attributes(params[:picture])
+	  if @picture.update_attributes(picture_params)
 	    redirect_to "/pictures/#{@picture.id}"
 	  else
 	    render :edit
 	  end
 	end
 
+	def destroy
+	  @picture = Picture.find(params[:id])
+	  @picture.destroy
+	  redirect_to pictures_url
+	end
+
 	private
 
-	def person_params
+	def picture_params
     params.require(:picture).permit(:title, :artist, :url)
   end
 end
